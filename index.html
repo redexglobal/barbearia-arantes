@@ -201,6 +201,108 @@
     .gal-item.grande{grid-row:span 1;}
     .horarios-wrap,.contato-grid,.extras-cols{grid-template-columns:1fr;}
   }
+
+  /* ── CARRINHO ── */
+  .cart-btn{background:none;border:none;cursor:pointer;position:relative;
+    display:flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.7);
+    font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;padding:0;}
+  .cart-btn:hover{color:var(--dourado);}
+  .cart-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;}
+  .cart-badge{position:absolute;top:-7px;right:-10px;background:var(--dourado);color:#000;
+    font-size:0.6rem;font-weight:900;width:18px;height:18px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform 0.2s;transform:scale(0);}
+  .cart-badge.vis{transform:scale(1);}
+
+  /* painel overlay */
+  .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);
+    z-index:500;opacity:0;pointer-events:none;transition:opacity 0.3s;
+    backdrop-filter:blur(4px);}
+  .cart-overlay.aberto{opacity:1;pointer-events:all;}
+
+  /* painel lateral */
+  .cart-painel{position:fixed;top:0;right:0;height:100vh;width:min(480px,100vw);
+    background:#111;border-left:1px solid rgba(201,168,76,0.2);
+    z-index:501;display:flex;flex-direction:column;
+    transform:translateX(100%);transition:transform 0.35s cubic-bezier(.4,0,.2,1);}
+  .cart-painel.aberto{transform:translateX(0);}
+
+  .cart-header{display:flex;align-items:center;justify-content:space-between;
+    padding:1.2rem 1.5rem;border-bottom:1px solid rgba(201,168,76,0.2);flex-shrink:0;}
+  .cart-header h2{font-family:'Playfair Display',serif;font-size:1.3rem;
+    font-weight:900;color:var(--branco);}
+  .cart-header h2 span{color:var(--dourado);}
+  .cart-fechar{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.5);
+    font-size:1.5rem;line-height:1;transition:color 0.2s;padding:0;}
+  .cart-fechar:hover{color:var(--branco);}
+
+  .cart-body{flex:1;overflow-y:auto;padding:1.2rem 1.5rem;}
+  .cart-body::-webkit-scrollbar{width:4px;}
+  .cart-body::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);border-radius:2px;}
+
+  /* grupo de itens */
+  .cart-grupo{margin-bottom:1.6rem;}
+  .cart-grupo-titulo{font-size:0.6rem;font-weight:800;letter-spacing:3px;
+    text-transform:uppercase;color:var(--dourado);margin-bottom:0.7rem;
+    padding-bottom:0.4rem;border-bottom:1px solid rgba(201,168,76,0.15);}
+
+  .cart-item{display:flex;align-items:center;gap:0.9rem;padding:0.65rem 0.8rem;
+    border-radius:10px;cursor:pointer;transition:background 0.15s;
+    border:1px solid transparent;}
+  .cart-item:hover{background:rgba(255,255,255,0.04);}
+  .cart-item.selecionado{background:rgba(201,168,76,0.08);
+    border-color:rgba(201,168,76,0.25);}
+
+  /* checkbox customizado */
+  .cart-check{width:20px;height:20px;border-radius:6px;flex-shrink:0;
+    border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;
+    justify-content:center;transition:all 0.15s;}
+  .cart-item.selecionado .cart-check{background:var(--dourado);border-color:var(--dourado);}
+  .cart-check svg{width:12px;height:12px;stroke:#000;fill:none;stroke-width:3;
+    opacity:0;transition:opacity 0.15s;}
+  .cart-item.selecionado .cart-check svg{opacity:1;}
+
+  .cart-item-info{flex:1;}
+  .cart-item-nome{font-size:0.83rem;font-weight:700;color:var(--branco);}
+  .cart-item-preco{font-size:0.75rem;color:var(--dourado);font-weight:700;margin-top:1px;}
+
+  /* agendamento */
+  .cart-agenda{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);
+    border-radius:12px;padding:1.2rem;margin-bottom:1.5rem;}
+  .cart-agenda h3{font-size:0.65rem;font-weight:800;letter-spacing:2px;
+    text-transform:uppercase;color:var(--dourado);margin-bottom:1rem;}
+  .cart-agenda-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+  .campo-ag label{font-size:0.62rem;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:0.35rem;}
+  .campo-ag input,.campo-ag select{width:100%;background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.15);border-radius:8px;
+    padding:0.6rem 0.8rem;color:var(--branco);font-family:'Montserrat',sans-serif;
+    font-size:0.82rem;font-weight:600;outline:none;transition:border 0.2s;}
+  .campo-ag input:focus,.campo-ag select:focus{border-color:var(--dourado);}
+  .campo-ag select option{background:#1a1a1a;color:#fff;}
+
+  /* resumo */
+  .cart-footer{padding:1.2rem 1.5rem;border-top:1px solid rgba(201,168,76,0.2);flex-shrink:0;}
+  .cart-total-linha{display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:1rem;}
+  .cart-total-label{font-size:0.7rem;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;color:rgba(255,255,255,0.5);}
+  .cart-total-val{font-family:'Playfair Display',serif;font-size:1.6rem;
+    font-weight:900;color:var(--dourado);}
+  .cart-vazio{font-size:0.8rem;color:rgba(255,255,255,0.3);text-align:center;
+    padding:2rem 0;font-style:italic;}
+  .btn-enviar{width:100%;display:flex;align-items:center;justify-content:center;
+    gap:0.8rem;background:linear-gradient(135deg,#25D366,#1ebe5d);color:#fff;
+    border:none;padding:1rem;border-radius:12px;font-family:'Montserrat',sans-serif;
+    font-size:0.92rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;
+    cursor:pointer;transition:all 0.2s;box-shadow:0 6px 20px rgba(37,211,102,0.3);}
+  .btn-enviar:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,0.5);}
+  .btn-enviar:disabled{opacity:0.35;cursor:not-allowed;transform:none;}
+  .btn-enviar svg{width:20px;height:20px;fill:currentColor;}
+  .cart-aviso{font-size:0.68rem;color:rgba(255,255,255,0.3);text-align:center;
+    margin-top:0.6rem;line-height:1.5;}
+
 </style>
 </head>
 <body>
@@ -214,6 +316,11 @@
     <a href="#fotos">Fotos</a>
     <a href="#servicos">Serviços</a>
     <a href="#horarios">Horários</a>
+    <button class="cart-btn" onclick="abrirCarrinho()" aria-label="Carrinho">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Carrinho
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
     <a href="#agendar" class="nav-cta">Agendar</a>
   </nav>
 </header>
@@ -508,6 +615,209 @@
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
+
+
+<!-- CARRINHO LATERAL -->
+<div class="cart-overlay" id="cart-overlay" onclick="fecharCarrinho()"></div>
+<div class="cart-painel" id="cart-painel">
+
+  <div class="cart-header">
+    <h2>Meu <span>Carrinho</span></h2>
+    <button class="cart-fechar" onclick="fecharCarrinho()">✕</button>
+  </div>
+
+  <div class="cart-body" id="cart-body">
+
+    <!-- AGENDAMENTO -->
+    <div class="cart-agenda">
+      <h3>📅 Escolha seu Horário</h3>
+      <div class="cart-agenda-grid">
+        <div class="campo-ag">
+          <label>Data</label>
+          <input type="date" id="ag-data"/>
+        </div>
+        <div class="campo-ag">
+          <label>Horário</label>
+          <select id="ag-hora">
+            <option value="">Selecione</option>
+            <option>09:00</option><option>09:30</option>
+            <option>10:00</option><option>10:30</option>
+            <option>11:00</option><option>11:30</option>
+            <option>12:00</option><option>12:30</option>
+            <option>13:00</option><option>13:30</option>
+            <option>14:00</option><option>14:30</option>
+            <option>15:00</option><option>15:30</option>
+            <option>16:00</option><option>16:30</option>
+            <option>17:00</option><option>17:30</option>
+            <option>18:00</option><option>18:30</option>
+            <option>19:00</option><option>19:30</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITENS GERADOS POR JS -->
+    <div id="cart-itens"></div>
+
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total-linha">
+      <span class="cart-total-label">Total estimado</span>
+      <span class="cart-total-val" id="cart-total">R$ 0</span>
+    </div>
+    <button class="btn-enviar" id="btn-enviar" onclick="enviarWpp()" disabled>
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar Pedido no WhatsApp
+    </button>
+    <p class="cart-aviso">Selecione pelo menos 1 serviço e um horário para continuar.</p>
+  </div>
+</div>
+
+<script>
+// ── CATÁLOGO COMPLETO ──────────────────────────────────────────────────────
+var CATALOGO = [
+  { grupo: "✂️ Cortes & Combos", itens: [
+    { nome: "Corte + Barba",           preco: 70 },
+    { nome: "Corte Degradê Navalhado", preco: 40 },
+    { nome: "Corte Masculino",         preco: null },
+    { nome: "Corte Infantil",          preco: null },
+    { nome: "Corte + Pigmentação",     preco: 70  }
+  ]},
+  { grupo: "🪒 Barba & Acabamentos", itens: [
+    { nome: "Barba",          preco: null },
+    { nome: "Sobrancelha",    preco: 15   },
+    { nome: "Acabamento",     preco: null }
+  ]},
+  { grupo: "💇 Tratamentos Capilares", itens: [
+    { nome: "Escovado",              preco: 180 },
+    { nome: "Luzes",                 preco: 90  },
+    { nome: "Hidratação",            preco: 35  },
+    { nome: "Relaxamento/Alisamento",preco: 40  },
+    { nome: "Progressiva",           preco: 85  },
+    { nome: "Tintura",               preco: 40  },
+    { nome: "Pigmentação",           preco: 40  },
+    { nome: "Penteado",              preco: 20  }
+  ]},
+  { grupo: "👑 Plano Mensal", itens: [
+    { nome: "Plano Mensal Completo (cabelo+barba+sobrancelha)", preco: 149.90 }
+  ]},
+  { grupo: "🛍️ Produtos à Venda", itens: [
+    { nome: "Cosméticos / Pomada",           preco: 40  },
+    { nome: "Phosphorman — Óleo para Barba", preco: 40  },
+    { nome: "Phosphorman — Pomada Magnata",  preco: 30  },
+    { nome: "Pomadas",                       preco: 35  },
+    { nome: "Minoxidil Kirkland (original)", preco: 100 }
+  ]}
+];
+
+var selecionados = {};
+
+function fmtPreco(p){
+  if(!p) return "Consulte";
+  return "R$ " + p.toFixed(2).replace(".", ",");
+}
+
+function buildCart(){
+  var c = document.getElementById("cart-itens");
+  c.innerHTML = "";
+  CATALOGO.forEach(function(g){
+    var div = document.createElement("div");
+    div.className = "cart-grupo";
+    var h = document.createElement("div");
+    h.className = "cart-grupo-titulo";
+    h.textContent = g.grupo;
+    div.appendChild(h);
+    g.itens.forEach(function(item){
+      var key = item.nome;
+      var row = document.createElement("div");
+      row.className = "cart-item" + (selecionados[key] ? " selecionado" : "");
+      row.onclick = function(){ toggleItem(key, item.preco, row); };
+      row.innerHTML =
+        '<div class="cart-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>' +
+        '<div class="cart-item-info">' +
+          '<div class="cart-item-nome">' + item.nome + '</div>' +
+          '<div class="cart-item-preco">' + fmtPreco(item.preco) + '</div>' +
+        '</div>';
+      div.appendChild(row);
+    });
+    c.appendChild(div);
+  });
+}
+
+function toggleItem(key, preco, row){
+  if(selecionados[key]){ delete selecionados[key]; row.classList.remove("selecionado"); }
+  else { selecionados[key] = preco; row.classList.add("selecionado"); }
+  atualizarTotal();
+}
+
+function atualizarTotal(){
+  var total = 0;
+  var temPreco = false;
+  Object.values(selecionados).forEach(function(p){ if(p){ total += p; temPreco = true; }});
+  var qtd = Object.keys(selecionados).length;
+  // badge
+  var badge = document.getElementById("cart-badge");
+  badge.textContent = qtd;
+  badge.className = "cart-badge" + (qtd > 0 ? " vis" : "");
+  // total
+  document.getElementById("cart-total").textContent = temPreco ? "R$ " + total.toFixed(2).replace(".", ",") : "Consulte";
+  // botão
+  var data = document.getElementById("ag-data").value;
+  var hora = document.getElementById("ag-hora").value;
+  document.getElementById("btn-enviar").disabled = !(qtd > 0 && data && hora);
+}
+
+function abrirCarrinho(){
+  buildCart();
+  document.getElementById("cart-overlay").classList.add("aberto");
+  document.getElementById("cart-painel").classList.add("aberto");
+  document.body.style.overflow = "hidden";
+}
+
+function fecharCarrinho(){
+  document.getElementById("cart-overlay").classList.remove("aberto");
+  document.getElementById("cart-painel").classList.remove("aberto");
+  document.body.style.overflow = "";
+}
+
+// Atualiza botão quando data/hora mudam
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("ag-data").addEventListener("change", atualizarTotal);
+  document.getElementById("ag-hora").addEventListener("change", atualizarTotal);
+  // Data mínima = hoje
+  var hoje = new Date().toISOString().split("T")[0];
+  document.getElementById("ag-data").min = hoje;
+});
+
+function enviarWpp(){
+  var itens = Object.keys(selecionados);
+  var data = document.getElementById("ag-data").value;
+  var hora = document.getElementById("ag-hora").value;
+  if(!itens.length || !data || !hora) return;
+
+  // Formatar data em pt-BR
+  var partes = data.split("-");
+  var dataFmt = partes[2] + "/" + partes[1] + "/" + partes[0];
+
+  var total = 0;
+  var linhas = itens.map(function(n){
+    var p = selecionados[n];
+    if(p) total += p;
+    return "  • " + n + (p ? " — R$ " + p.toFixed(2).replace(".", ",") : " — Consultar");
+  }).join("\n");
+
+  var totalTxt = total > 0 ? "\n💰 Total estimado: R$ " + total.toFixed(2).replace(".", ",") : "";
+
+  var msg = "Vim pelo site de vocês. Quero agendar meu horário!\n\n" +
+    "📅 Data: " + dataFmt + "\n" +
+    "🕐 Horário: " + hora + "\n\n" +
+    "✂️ Serviços / Produtos:\n" + linhas + totalTxt + "\n\n" +
+    "Aguardo confirmação. Obrigado!";
+
+  window.open("https://wa.me/5562994567050?text=" + encodeURIComponent(msg), "_blank");
+}
+</script>
 
 </body>
 </html>
