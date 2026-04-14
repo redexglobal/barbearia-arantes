@@ -94,7 +94,7 @@
 
   /* ── GALERIA ── */
   #fotos{background:var(--cinza-esc);}
-  .galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;}
+  .galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:2.5rem;}
   .gal-item{border-radius:12px;overflow:hidden;aspect-ratio:3/4;position:relative;
     border:1px solid rgba(201,168,76,0.1);transition:transform 0.3s;}
   .gal-item:hover{transform:scale(1.02);}
@@ -472,9 +472,7 @@
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-deco"></div>
-  <video class="hero-video" autoplay muted loop playsinline poster="">
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-barber-working-on-a-client-hair-with-scissors-43034-large.mp4" type="video/mp4"/>
-  </video>
+  <img src="images/foto-equipe.jpg" class="hero-video" alt="Equipe Barbearia Arantes" style="object-fit:cover;"/>
   <div class="hero-video-overlay"></div>
   <div class="hero-inner">
     <img src="images/logo2.png" alt="Barbearia Arantes" class="hero-logo"/>
@@ -526,13 +524,19 @@
     <div class="divisor"></div>
     <div class="galeria-grid">
       <div class="gal-item grande">
-        <img src="images/contrata.png" alt="Barbearia Arantes"/>
+        <img src="images/foto-ambiente.jpg" alt="Interior Barbearia Arantes — espelhos iluminados"/>
       </div>
       <div class="gal-item">
-        <img src="images/logo2.png" alt="Logo Barbearia Arantes" style="object-fit:contain;background:#000;padding:1.5rem;"/>
+        <img src="images/foto-corte1.jpg" alt="Corte degradê clássico"/>
       </div>
       <div class="gal-item">
-        <img src="images/horario.jpg" alt="Horário de Funcionamento"/>
+        <img src="images/foto-tranca.jpg" alt="Trança com degradê artístico"/>
+      </div>
+      <div class="gal-item">
+        <img src="images/foto-platinado.jpg" alt="Coloração platinada com riscos"/>
+      </div>
+      <div class="gal-item">
+        <img src="images/foto-cacheado.jpg" alt="Corte cacheado com fade"/>
       </div>
     </div>
   </div>
@@ -634,10 +638,10 @@
     <div class="divisor"></div>
     <div class="ad-wrap" id="ad-wrap">
       <div class="ad-before">
-        <img src="images/contrata.png" alt="Antes"/>
+        <img src="images/foto-trabalho.jpg" alt="Barbearia Arantes — atendimento"/>
       </div>
       <div class="ad-after" id="ad-after">
-        <img src="images/horario.jpg" alt="Depois"/>
+        <img src="images/foto-corte1.jpg" alt="Resultado — corte degradê perfeito"/>
       </div>
       <div class="ad-label ad-label-before">Antes</div>
       <div class="ad-label ad-label-after">Depois</div>
@@ -877,27 +881,27 @@
     <div class="divisor"></div>
     <div class="ig-grid">
       <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
-        <img src="images/contrata.png" alt="Barbearia Arantes"/>
+        <img src="images/foto-equipe.jpg" alt="Equipe Barbearia Arantes"/>
         <div class="ig-item-overlay"><span>Ver mais</span></div>
       </a>
       <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
-        <img src="images/logo2.png" style="object-fit:contain;background:#000;padding:1rem;" alt="Logo"/>
+        <img src="images/foto-corte1.jpg" alt="Corte degradê"/>
         <div class="ig-item-overlay"><span>Ver mais</span></div>
       </a>
       <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
-        <img src="images/horario.jpg" alt="Horários"/>
+        <img src="images/foto-ambiente.jpg" alt="Ambiente"/>
         <div class="ig-item-overlay"><span>Ver mais</span></div>
       </a>
-      <a class="ig-item placeholder" href="https://instagram.com/barbearia_arantes062" target="_blank">
-        <div class="ig-ph">✂️</div>
+      <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <img src="images/foto-tranca.jpg" alt="Trança artística"/>
         <div class="ig-item-overlay"><span>Ver mais</span></div>
       </a>
-      <a class="ig-item placeholder" href="https://instagram.com/barbearia_arantes062" target="_blank">
-        <div class="ig-ph">🪒</div>
+      <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <img src="images/foto-platinado.jpg" alt="Platinado"/>
         <div class="ig-item-overlay"><span>Ver mais</span></div>
       </a>
-      <a class="ig-item placeholder" href="https://instagram.com/barbearia_arantes062" target="_blank">
-        <div class="ig-ph">💈</div>
+      <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <img src="images/foto-cacheado.jpg" alt="Cacheado fade"/>
         <div class="ig-item-overlay"><span>Ver mais</span></div>
       </a>
     </div>
