@@ -303,9 +303,152 @@
   .cart-aviso{font-size:0.68rem;color:rgba(255,255,255,0.3);text-align:center;
     margin-top:0.6rem;line-height:1.5;}
 
+
+  /* ── 1. BANNER PROMO ── */
+  .promo-bar{background:linear-gradient(90deg,var(--dourado),var(--dourado-claro),var(--dourado));
+    color:#000;text-align:center;font-size:0.72rem;font-weight:800;letter-spacing:1.5px;
+    padding:0.5rem 3rem;position:relative;z-index:200;text-transform:uppercase;}
+  .promo-bar a{color:#000;text-decoration:underline;margin-left:8px;}
+  .promo-fechar{position:absolute;right:1rem;top:50%;transform:translateY(-50%);
+    background:none;border:none;cursor:pointer;font-size:1rem;color:#000;opacity:0.6;}
+  .promo-fechar:hover{opacity:1;}
+  body.promo-off .promo-bar{display:none;}
+
+  /* ── 2. VÍDEO HERO ── */
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    z-index:0;opacity:0.28;pointer-events:none;}
+  .hero-video-overlay{position:absolute;inset:0;z-index:0;
+    background:linear-gradient(160deg,rgba(8,8,8,0.75) 0%,rgba(8,8,8,0.55) 100%);}
+
+  /* ── 3. CONTADORES ── */
+  .contadores{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+    margin:3rem 0 0;}
+  .cnt-card{text-align:center;padding:1.8rem 1rem;background:var(--cinza);
+    border-radius:14px;border:1px solid rgba(201,168,76,0.15);}
+  .cnt-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;
+    color:var(--dourado);line-height:1;}
+  .cnt-label{font-size:0.62rem;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:0.4rem;}
+
+  /* ── 4. ANTES/DEPOIS ── */
+  #antes-depois{background:var(--preto);}
+  .ad-wrap{position:relative;width:100%;max-width:720px;margin:2.5rem auto 0;
+    aspect-ratio:16/9;border-radius:16px;overflow:hidden;
+    border:1px solid rgba(201,168,76,0.2);cursor:col-resize;user-select:none;}
+  .ad-before,.ad-after{position:absolute;inset:0;width:100%;height:100%;}
+  .ad-before img,.ad-after img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ad-after{clip-path:inset(0 50% 0 0);transition:clip-path 0s;}
+  .ad-label{position:absolute;bottom:1rem;font-size:0.65rem;font-weight:800;
+    letter-spacing:2px;text-transform:uppercase;padding:0.3rem 0.9rem;
+    border-radius:50px;backdrop-filter:blur(6px);}
+  .ad-label-before{left:1rem;background:rgba(0,0,0,0.6);color:#fff;}
+  .ad-label-after{right:1rem;background:rgba(201,168,76,0.85);color:#000;}
+  .ad-handle{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
+    width:3px;background:var(--dourado);z-index:5;cursor:col-resize;}
+  .ad-handle::before{content:'◀ ▶';position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:var(--dourado);color:#000;
+    font-size:0.65rem;font-weight:900;padding:0.4rem 0.6rem;border-radius:50px;
+    white-space:nowrap;}
+  .ad-hint{text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);
+    margin-top:1rem;letter-spacing:1px;}
+
+  /* ── 5. BTN DOURADO FLUTUANTE ── */
+  .float-gold{position:fixed;bottom:6.5rem;right:2rem;z-index:998;
+    background:var(--dourado);color:#000;text-decoration:none;
+    width:58px;height:58px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;box-shadow:0 6px 24px rgba(201,168,76,0.45);
+    transition:transform 0.2s;animation:pulseGold 2.5s ease-in-out infinite;}
+  .float-gold:hover{transform:scale(1.1);}
+  .float-gold svg{width:26px;height:26px;fill:none;stroke:#000;stroke-width:2.5;}
+  @keyframes pulseGold{0%,100%{box-shadow:0 6px 24px rgba(201,168,76,0.45);}
+    50%{box-shadow:0 6px 36px rgba(201,168,76,0.75);}}
+
+  /* ── 6. DEPOIMENTOS ── */
+  #depoimentos{background:var(--cinza-esc);}
+  .dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1.2rem;margin-top:2.5rem;}
+  .dep-card{background:var(--cinza);border:1px solid rgba(255,255,255,0.06);
+    border-radius:14px;padding:1.6rem;position:relative;}
+  .dep-estrelas{color:var(--dourado);font-size:0.85rem;margin-bottom:0.8rem;
+    letter-spacing:2px;}
+  .dep-texto{font-size:0.84rem;color:rgba(255,255,255,0.65);line-height:1.8;
+    margin-bottom:1.2rem;font-style:italic;}
+  .dep-autor{display:flex;align-items:center;gap:0.8rem;}
+  .dep-avatar{width:38px;height:38px;border-radius:50%;background:var(--dourado);
+    display:flex;align-items:center;justify-content:center;font-weight:900;
+    font-size:0.9rem;color:#000;flex-shrink:0;}
+  .dep-nome{font-size:0.82rem;font-weight:800;color:var(--branco);}
+  .dep-data{font-size:0.65rem;color:rgba(255,255,255,0.3);margin-top:1px;}
+  .dep-quote{position:absolute;top:1rem;right:1.2rem;font-size:3rem;
+    color:rgba(201,168,76,0.1);font-family:'Playfair Display',serif;line-height:1;}
+
+  /* ── 7. TEMA CLARO/ESCURO ── */
+  .toggle-tema{background:none;border:1px solid rgba(255,255,255,0.15);
+    border-radius:50px;padding:0.35rem 0.8rem;cursor:pointer;
+    color:rgba(255,255,255,0.6);font-family:'Montserrat',sans-serif;
+    font-size:0.7rem;font-weight:700;letter-spacing:1px;transition:all 0.2s;
+    display:flex;align-items:center;gap:0.4rem;}
+  .toggle-tema:hover{border-color:var(--dourado);color:var(--dourado);}
+
+  [data-tema="claro"]{
+    --preto:#f5f0e8;--cinza-esc:#ede8dc;--cinza:#e0d9cc;--cinza2:#d5cdc0;
+    --branco:#1a1a1a;--dourado:#9a7a2e;--dourado-claro:#b8943a;}
+  [data-tema="claro"] body{background:var(--preto);}
+  [data-tema="claro"] header{background:rgba(245,240,232,0.95);}
+  [data-tema="claro"] nav a{color:rgba(0,0,0,0.6);}
+  [data-tema="claro"] .hero{background:linear-gradient(160deg,#f0ead8,#e8e0cc);}
+  [data-tema="claro"] .hero::before{background:radial-gradient(ellipse at 60% 40%,rgba(154,122,46,0.15) 0%,transparent 65%);}
+  [data-tema="claro"] .hero h1{color:#1a1a1a;}
+  [data-tema="claro"] .hero-sub{color:rgba(0,0,0,0.4);}
+  [data-tema="claro"] .cart-painel{background:#e8e0cc;}
+  [data-tema="claro"] .campo-ag input,[data-tema="claro"] .campo-ag select{color:#1a1a1a;background:rgba(0,0,0,0.05);}
+
+  /* ── 8. MAPA ── */
+  .mapa-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(201,168,76,0.2);
+    margin-top:2rem;height:300px;}
+  .mapa-wrap iframe{width:100%;height:100%;border:none;display:block;}
+
+  /* ── 9. INSTAGRAM ── */
+  #instagram{background:var(--preto);}
+  .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:2.5rem;
+    border-radius:12px;overflow:hidden;}
+  .ig-item{position:relative;aspect-ratio:1;overflow:hidden;cursor:pointer;}
+  .ig-item img{width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform 0.3s;}
+  .ig-item:hover img{transform:scale(1.06);}
+  .ig-item-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.5);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity 0.25s;}
+  .ig-item:hover .ig-item-overlay{opacity:1;}
+  .ig-item-overlay span{font-size:0.75rem;font-weight:800;color:#fff;letter-spacing:2px;
+    text-transform:uppercase;}
+  .ig-item.placeholder{background:var(--cinza);
+    display:flex;align-items:center;justify-content:center;}
+  .ig-item.placeholder .ig-ph{font-size:2rem;opacity:0.3;}
+  .ig-cta{display:flex;align-items:center;justify-content:center;margin-top:1.5rem;}
+  .ig-btn{display:inline-flex;align-items:center;gap:0.7rem;
+    border:1px solid rgba(201,168,76,0.4);color:var(--dourado);text-decoration:none;
+    padding:0.8rem 2rem;border-radius:50px;font-weight:700;font-size:0.82rem;
+    letter-spacing:2px;text-transform:uppercase;transition:all 0.2s;}
+  .ig-btn:hover{background:var(--dourado);color:#000;border-color:var(--dourado);}
+
+  /* RESPONSIVO extras */
+  @media(max-width:768px){
+    .contadores{grid-template-columns:1fr 1fr;}
+    .ig-grid{grid-template-columns:repeat(3,1fr);}
+    .float-gold{bottom:7.5rem;}
+  }
+
 </style>
 </head>
 <body>
+
+<!-- 1. BANNER PROMO -->
+<div class="promo-bar" id="promo-bar">
+  🔥 Plano Mensal Completo por <strong>R$ 149,90</strong> — cabelo + barba + sobrancelha · vagas limitadas!
+  <a href="#" onclick="abrirCarrinho();return false;">Agendar agora</a>
+  <button class="promo-fechar" onclick="document.body.classList.add('promo-off')" aria-label="Fechar">✕</button>
+</div>
 
 <!-- HEADER -->
 <header>
@@ -321,6 +464,7 @@
       Carrinho
       <span class="cart-badge" id="cart-badge">0</span>
     </button>
+    <button class="toggle-tema" onclick="toggleTema()" id="btn-tema" title="Alternar tema">🌙 Tema</button>
     <a href="#agendar" class="nav-cta">Agendar</a>
   </nav>
 </header>
@@ -328,6 +472,10 @@
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-deco"></div>
+  <video class="hero-video" autoplay muted loop playsinline poster="">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-barber-working-on-a-client-hair-with-scissors-43034-large.mp4" type="video/mp4"/>
+  </video>
+  <div class="hero-video-overlay"></div>
   <div class="hero-inner">
     <img src="images/logo2.png" alt="Barbearia Arantes" class="hero-logo"/>
     <div class="hero-badge">✂️ Homens de Estilo · Goiânia – GO</div>
@@ -341,6 +489,31 @@
         Agendar Horário Agora
       </a>
       <a href="#servicos" class="btn-outline">Ver Serviços</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3. CONTADORES ANIMADOS -->
+<section id="numeros" style="background:var(--cinza-esc);padding:4rem 2rem;">
+  <div class="sec-inner">
+    <div class="contadores" id="cnt-wrap">
+      <div class="cnt-card">
+        <div class="cnt-num" data-target="2400">0</div>
+        <div class="cnt-label">Clientes Atendidos</div>
+      </div>
+      <div class="cnt-card">
+        <div class="cnt-num" data-target="7">0</div>
+        <div class="cnt-label">Anos de Estilo</div>
+      </div>
+      <div class="cnt-card">
+        <div class="cnt-num" data-target="12">0</div>
+        <div class="cnt-label">Serviços Disponíveis</div>
+      </div>
+      <div class="cnt-card">
+        <div class="cnt-num" data-target="100">0</div>
+        <div class="cnt-label">% Satisfação</div>
+      </div>
     </div>
   </div>
 </section>
@@ -453,6 +626,29 @@
   </div>
 </section>
 
+<!-- 4. ANTES/DEPOIS -->
+<section id="antes-depois">
+  <div class="sec-inner">
+    <span class="sec-tag">Transformações</span>
+    <h2 class="sec-titulo">Antes &amp; <span>Depois</span></h2>
+    <div class="divisor"></div>
+    <div class="ad-wrap" id="ad-wrap">
+      <div class="ad-before">
+        <img src="images/contrata.png" alt="Antes"/>
+      </div>
+      <div class="ad-after" id="ad-after">
+        <img src="images/horario.jpg" alt="Depois"/>
+      </div>
+      <div class="ad-label ad-label-before">Antes</div>
+      <div class="ad-label ad-label-after">Depois</div>
+      <div class="ad-handle" id="ad-handle"></div>
+    </div>
+    <p class="ad-hint">⟵ Arraste para comparar ⟶</p>
+    <p style="text-align:center;font-size:0.68rem;color:rgba(255,255,255,0.2);margin-top:0.5rem;">* Adicione fotos reais de antes/depois para maximizar o impacto.</p>
+  </div>
+</section>
+
+
 <!-- SERVIÇOS EXTRAS + PRODUTOS -->
 <section id="extras">
   <div class="sec-inner">
@@ -523,6 +719,72 @@
   </div>
 </section>
 
+<!-- 6. DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="sec-inner">
+    <span class="sec-tag">O que dizem</span>
+    <h2 class="sec-titulo">Clientes que <span>Confiam</span></h2>
+    <div class="divisor"></div>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <div class="dep-estrelas">★★★★★</div>
+        <div class="dep-texto">Melhor barbearia do João Braz! O Arantes manda muito bem no degradê. Saí do jeito que queria, bem alinhado e com o acabamento perfeito.</div>
+        <div class="dep-autor">
+          <div class="dep-avatar">R</div>
+          <div><div class="dep-nome">Rafael Souza</div><div class="dep-data">há 2 semanas</div></div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <div class="dep-estrelas">★★★★★</div>
+        <div class="dep-texto">Assino o plano mensal e vale cada centavo. Toda semana venho fazer a barba e o cabelo. Atendimento rápido, ambiente limpo e preço justo.</div>
+        <div class="dep-autor">
+          <div class="dep-avatar">M</div>
+          <div><div class="dep-nome">Mateus Carvalho</div><div class="dep-data">há 1 mês</div></div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <div class="dep-estrelas">★★★★★</div>
+        <div class="dep-texto">Fiz a progressiva aqui e ficou incrível! Ambiente super profissional, produtos de qualidade. Com certeza voltarei. Super recomendo a todos!</div>
+        <div class="dep-autor">
+          <div class="dep-avatar">A</div>
+          <div><div class="dep-nome">Amanda Ferreira</div><div class="dep-data">há 3 semanas</div></div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <div class="dep-estrelas">★★★★★</div>
+        <div class="dep-texto">Trouxe meu filho de 6 anos e adorou! Ele tem pavor de barbearia mas ficou tranquilo com o atendimento. Corte perfeito, muito cuidado com os pequenos.</div>
+        <div class="dep-autor">
+          <div class="dep-avatar">L</div>
+          <div><div class="dep-nome">Lucas Oliveira</div><div class="dep-data">há 2 meses</div></div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <div class="dep-estrelas">★★★★★</div>
+        <div class="dep-texto">Comprei o Minoxidil Kirkland lá e já tô vendo resultado! Além disso o corte ficou show. É raro encontrar um lugar que vende produto original com preço justo.</div>
+        <div class="dep-autor">
+          <div class="dep-avatar">G</div>
+          <div><div class="dep-nome">Gabriel Mendes</div><div class="dep-data">há 1 semana</div></div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <div class="dep-estrelas">★★★★★</div>
+        <div class="dep-texto">Indico para todo mundo! A pigmentação ficou natural, sem exagero. Agendei pelo WhatsApp e fui atendido no horário marcado. Zero espera, total respeito.</div>
+        <div class="dep-autor">
+          <div class="dep-avatar">F</div>
+          <div><div class="dep-nome">Felipe Andrade</div><div class="dep-data">há 3 dias</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- CTA AGENDAR -->
 <section id="agendar">
   <div class="agendar-inner">
@@ -591,6 +853,14 @@
           Falar no WhatsApp
         </a>
       </div>
+      
+    <!-- 8. MAPA -->
+    <div class="mapa-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.4!2d-49.3!3d-16.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef2b7b4f7d3a1%3A0x1234567890abcdef!2sParque%20Industrial%20Jo%C3%A3o%20Braz%2C%20Goi%C3%A2nia%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
       <div class="contrata-card">
         <img src="images/contrata.png" alt="Barbearia Arantes — Contrata-se Barbeiro"/>
       </div>
@@ -599,6 +869,47 @@
 </section>
 
 <!-- FOOTER -->
+<!-- 9. INSTAGRAM -->
+<section id="instagram">
+  <div class="sec-inner">
+    <span class="sec-tag">Siga nas Redes</span>
+    <h2 class="sec-titulo">No <span>Instagram</span></h2>
+    <div class="divisor"></div>
+    <div class="ig-grid">
+      <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <img src="images/contrata.png" alt="Barbearia Arantes"/>
+        <div class="ig-item-overlay"><span>Ver mais</span></div>
+      </a>
+      <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <img src="images/logo2.png" style="object-fit:contain;background:#000;padding:1rem;" alt="Logo"/>
+        <div class="ig-item-overlay"><span>Ver mais</span></div>
+      </a>
+      <a class="ig-item" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <img src="images/horario.jpg" alt="Horários"/>
+        <div class="ig-item-overlay"><span>Ver mais</span></div>
+      </a>
+      <a class="ig-item placeholder" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <div class="ig-ph">✂️</div>
+        <div class="ig-item-overlay"><span>Ver mais</span></div>
+      </a>
+      <a class="ig-item placeholder" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <div class="ig-ph">🪒</div>
+        <div class="ig-item-overlay"><span>Ver mais</span></div>
+      </a>
+      <a class="ig-item placeholder" href="https://instagram.com/barbearia_arantes062" target="_blank">
+        <div class="ig-ph">💈</div>
+        <div class="ig-item-overlay"><span>Ver mais</span></div>
+      </a>
+    </div>
+    <div class="ig-cta">
+      <a href="https://instagram.com/barbearia_arantes062" target="_blank" class="ig-btn">
+        📸 @barbearia_arantes062 · Seguir no Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+
 <footer>
   <img src="images/logo.jpg" alt="Barbearia Arantes" class="footer-logo-img"/>
   <div class="footer-slogan">Homens de Estilo · Goiânia – GO</div>
@@ -616,6 +927,12 @@
   </svg>
 </a>
 
+
+
+<!-- 5. BOTÃO FLUTUANTE DOURADO -->
+<a href="#" onclick="abrirCarrinho();return false;" class="float-gold" title="Montar meu horário" aria-label="Montar pedido">
+  <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+</a>
 
 <!-- CARRINHO LATERAL -->
 <div class="cart-overlay" id="cart-overlay" onclick="fecharCarrinho()"></div>
@@ -817,6 +1134,93 @@ function enviarWpp(){
 
   window.open("https://wa.me/5562994567050?text=" + encodeURIComponent(msg), "_blank");
 }
+</script>
+
+
+<script>
+// ── 3. CONTADORES ANIMADOS ──────────────────────────────────────
+var cntAtivado = false;
+function animarContadores(){
+  if(cntAtivado) return;
+  var wrap = document.getElementById("cnt-wrap");
+  if(!wrap) return;
+  var rect = wrap.getBoundingClientRect();
+  if(rect.top < window.innerHeight - 80){
+    cntAtivado = true;
+    document.querySelectorAll(".cnt-num").forEach(function(el){
+      var target = parseInt(el.dataset.target);
+      var duracao = 1800;
+      var inicio = Date.now();
+      var suffix = el.dataset.target === "100" ? "%" : "+";
+      function step(){
+        var prog = Math.min((Date.now() - inicio) / duracao, 1);
+        var ease = 1 - Math.pow(1 - prog, 3);
+        el.textContent = Math.round(ease * target).toLocaleString("pt-BR") + suffix;
+        if(prog < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+}
+window.addEventListener("scroll", animarContadores);
+animarContadores();
+
+// ── 4. ANTES/DEPOIS SLIDER ──────────────────────────────────────
+(function(){
+  var wrap = document.getElementById("ad-wrap");
+  if(!wrap) return;
+  var after = document.getElementById("ad-after");
+  var handle = document.getElementById("ad-handle");
+  var drag = false;
+
+  function setPos(pct){
+    pct = Math.max(5, Math.min(95, pct));
+    after.style.clipPath = "inset(0 " + (100-pct) + "% 0 0)";
+    handle.style.left = pct + "%";
+  }
+  setPos(50);
+
+  function getX(e){ return e.touches ? e.touches[0].clientX : e.clientX; }
+
+  wrap.addEventListener("mousedown",  function(e){ drag=true; e.preventDefault(); });
+  wrap.addEventListener("touchstart", function(e){ drag=true; }, {passive:true});
+  window.addEventListener("mouseup",  function(){ drag=false; });
+  window.addEventListener("touchend", function(){ drag=false; });
+  window.addEventListener("mousemove", function(e){
+    if(!drag) return;
+    var r = wrap.getBoundingClientRect();
+    setPos(((getX(e)-r.left)/r.width)*100);
+  });
+  window.addEventListener("touchmove", function(e){
+    if(!drag) return;
+    var r = wrap.getBoundingClientRect();
+    setPos(((getX(e)-r.left)/r.width)*100);
+  }, {passive:true});
+})();
+
+// ── 7. TOGGLE TEMA ──────────────────────────────────────────────
+function toggleTema(){
+  var html = document.documentElement;
+  var btn = document.getElementById("btn-tema");
+  if(html.getAttribute("data-tema") === "claro"){
+    html.removeAttribute("data-tema");
+    btn.textContent = "🌙 Tema";
+    localStorage.setItem("tema","escuro");
+  } else {
+    html.setAttribute("data-tema","claro");
+    btn.textContent = "🌑 Tema";
+    localStorage.setItem("tema","claro");
+  }
+}
+// restaurar tema salvo
+(function(){
+  var t = localStorage.getItem("tema");
+  if(t==="claro"){
+    document.documentElement.setAttribute("data-tema","claro");
+    var b = document.getElementById("btn-tema");
+    if(b) b.textContent = "🌑 Tema";
+  }
+})();
 </script>
 
 </body>
