@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Barbearia Arantes | Goiânia – GO</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap');
+
+  :root{
+    --preto:#0a0a0a;
+    --cinza-esc:#111111;
+    --cinza:#1c1c1c;
+    --dourado:#C9A84C;
+    --dourado-claro:#e8c96a;
+    --branco:#f5f5f5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--preto);color:var(--branco);font-family:'Montserrat',sans-serif;overflow-x:hidden;}
+
+  /* ───── HEADER / NAV ───── */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;
+    background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(201,168,76,0.2);}
+  .logo-nav{display:flex;align-items:center;gap:0.8rem;}
+  .logo-nav .poste{font-size:1.6rem;}
+  .logo-nav .nome{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;
+    color:var(--branco);letter-spacing:1px;}
+  .logo-nav .nome span{color:var(--dourado);}
+  nav{display:flex;gap:2rem;}
+  nav a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.78rem;
+    font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;}
+  nav a:hover{color:var(--dourado);}
+  .nav-cta{background:var(--dourado);color:#000 !important;
+    padding:0.5rem 1.3rem;border-radius:6px;font-weight:900 !important;}
+  .nav-cta:hover{background:var(--dourado-claro);color:#000 !important;}
+
+  /* ───── HERO ───── */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#0a0a0a 0%,#111111 50%,#0f0d08 100%);}
+  .hero-bg{position:absolute;inset:0;
+    background:radial-gradient(ellipse at 70% 50%,rgba(201,168,76,0.08) 0%,transparent 65%);}
+  .hero-lines{position:absolute;inset:0;pointer-events:none;}
+  .hero-lines::before{content:'';position:absolute;top:0;left:50%;width:1px;height:100%;
+    background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.15),transparent);}
+  .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;
+    padding:8rem 2rem 4rem;text-align:center;}
+  .hero-badge{display:inline-block;background:rgba(201,168,76,0.12);
+    border:1px solid rgba(201,168,76,0.4);border-radius:50px;
+    padding:0.4rem 1.4rem;font-size:0.65rem;font-weight:800;
+    letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:1.6rem;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6.5rem);
+    font-weight:900;line-height:1;color:var(--branco);margin-bottom:0.3rem;}
+  .hero h1 span{color:var(--dourado);display:block;}
+  .hero-sub{font-size:0.85rem;color:rgba(255,255,255,0.45);font-weight:600;
+    letter-spacing:4px;text-transform:uppercase;margin-top:1rem;margin-bottom:2.5rem;}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn-gold{background:var(--dourado);color:#000;text-decoration:none;
+    padding:0.9rem 2.4rem;border-radius:8px;font-weight:900;font-size:0.85rem;
+    letter-spacing:1.5px;text-transform:uppercase;transition:all 0.2s;
+    box-shadow:0 6px 24px rgba(201,168,76,0.3);}
+  .btn-gold:hover{background:var(--dourado-claro);transform:translateY(-2px);
+    box-shadow:0 10px 32px rgba(201,168,76,0.45);}
+  .btn-outline{border:1px solid rgba(255,255,255,0.3);color:var(--branco);text-decoration:none;
+    padding:0.9rem 2.4rem;border-radius:8px;font-weight:700;font-size:0.85rem;
+    letter-spacing:1.5px;text-transform:uppercase;transition:all 0.2s;}
+  .btn-outline:hover{border-color:var(--dourado);color:var(--dourado);}
+  .hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+    color:rgba(255,255,255,0.3);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;}
+  .hero-scroll::after{content:'';width:1px;height:40px;
+    background:linear-gradient(to bottom,rgba(201,168,76,0.5),transparent);}
+
+  /* ───── SEÇÕES ───── */
+  section{padding:6rem 2rem;}
+  .sec-inner{max-width:1100px;margin:0 auto;}
+  .sec-tag{font-size:0.62rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+    color:var(--dourado);margin-bottom:0.8rem;display:block;}
+  .sec-titulo{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);
+    font-weight:900;color:var(--branco);line-height:1.1;margin-bottom:1rem;}
+  .sec-titulo span{color:var(--dourado);}
+  .sec-desc{font-size:0.9rem;color:rgba(255,255,255,0.5);max-width:560px;line-height:1.8;}
+  .divisor-gold{width:48px;height:2px;background:var(--dourado);margin:1.5rem 0;}
+
+  /* ───── SOBRE ───── */
+  #sobre{background:var(--cinza-esc);}
+  .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+    margin-top:3.5rem;}
+  .sobre-numeros{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
+  .num-card{border:1px solid rgba(201,168,76,0.2);border-radius:12px;
+    padding:1.5rem;text-align:center;}
+  .num-card .num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;
+    color:var(--dourado);line-height:1;}
+  .num-card .num-label{font-size:0.65rem;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:0.4rem;}
+  .sobre-texto p{font-size:0.92rem;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:1rem;}
+
+  /* ───── SERVIÇOS ───── */
+  #servicos{background:var(--preto);}
+  .servicos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1.5rem;margin-top:3.5rem;}
+  .serv-card{background:var(--cinza);border:1px solid rgba(255,255,255,0.06);
+    border-radius:14px;padding:2rem 1.8rem;transition:all 0.25s;position:relative;overflow:hidden;}
+  .serv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:var(--dourado);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+  .serv-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);
+    box-shadow:0 16px 40px rgba(0,0,0,0.4);}
+  .serv-card:hover::before{transform:scaleX(1);}
+  .serv-icon{font-size:2.2rem;margin-bottom:1.2rem;display:block;}
+  .serv-nome{font-size:1.05rem;font-weight:900;color:var(--branco);margin-bottom:0.4rem;
+    letter-spacing:0.5px;}
+  .serv-desc{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:1.2rem;}
+  .serv-preco{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;
+    color:var(--dourado);}
+  .serv-preco span{font-family:'Montserrat',sans-serif;font-size:0.72rem;
+    color:rgba(255,255,255,0.4);font-weight:600;vertical-align:middle;margin-left:4px;}
+
+  /* ───── HORÁRIOS ───── */
+  #horarios{background:var(--cinza-esc);}
+  .horarios-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+    align-items:start;margin-top:3.5rem;}
+  .hora-lista{display:flex;flex-direction:column;gap:0.8rem;}
+  .hora-item{display:flex;justify-content:space-between;align-items:center;
+    padding:1rem 1.4rem;background:var(--cinza);border-radius:10px;
+    border-left:3px solid var(--dourado);}
+  .hora-item.fechado{border-left-color:rgba(255,255,255,0.15);}
+  .hora-dia{font-size:0.82rem;font-weight:700;color:var(--branco);}
+  .hora-tempo{font-size:0.82rem;font-weight:800;color:var(--dourado);}
+  .hora-item.fechado .hora-tempo{color:rgba(255,255,255,0.3);}
+  .contato-box{background:var(--cinza);border:1px solid rgba(201,168,76,0.2);
+    border-radius:16px;padding:2.2rem;}
+  .contato-box h3{font-family:'Playfair Display',serif;font-size:1.5rem;
+    color:var(--branco);margin-bottom:1.5rem;}
+  .contato-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.3rem;}
+  .contato-item .ic{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+  .contato-item .info{font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.6;}
+  .contato-item .info strong{display:block;color:var(--branco);font-size:0.85rem;margin-bottom:0.1rem;}
+  .btn-wpp{display:flex;align-items:center;justify-content:center;gap:0.7rem;
+    background:#25D366;color:#fff;text-decoration:none;padding:0.95rem 1.8rem;
+    border-radius:10px;font-weight:900;font-size:0.85rem;letter-spacing:1px;
+    text-transform:uppercase;margin-top:1.5rem;transition:all 0.2s;
+    box-shadow:0 6px 20px rgba(37,211,102,0.25);}
+  .btn-wpp:hover{background:#1ebe5d;transform:translateY(-2px);
+    box-shadow:0 10px 28px rgba(37,211,102,0.4);}
+
+  /* ───── FOOTER ───── */
+  footer{background:#070707;border-top:1px solid rgba(201,168,76,0.15);
+    padding:2.5rem 2rem;text-align:center;}
+  .footer-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;
+    color:var(--branco);margin-bottom:0.5rem;}
+  .footer-logo span{color:var(--dourado);}
+  footer p{font-size:0.68rem;color:rgba(255,255,255,0.25);letter-spacing:1px;
+    text-transform:uppercase;margin-top:0.3rem;}
+  .footer-social{margin:1.2rem 0;}
+  .footer-social a{color:var(--dourado);text-decoration:none;font-size:0.75rem;
+    font-weight:700;letter-spacing:1px;border:1px solid rgba(201,168,76,0.35);
+    padding:0.4rem 1rem;border-radius:50px;transition:all 0.2s;}
+  .footer-social a:hover{background:var(--dourado);color:#000;}
+
+  /* ───── WHATSAPP FLOAT ───── */
+  .wpp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;
+    width:58px;height:58px;border-radius:50%;background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 24px rgba(37,211,102,0.45);text-decoration:none;
+    transition:transform 0.2s;animation:pulse-wpp 2.5s ease-in-out infinite;}
+  .wpp-float:hover{transform:scale(1.1);}
+  .wpp-float svg{width:30px;height:30px;fill:#fff;}
+  @keyframes pulse-wpp{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.45);}
+    50%{box-shadow:0 6px 32px rgba(37,211,102,0.75);}}
+
+  /* ───── RESPONSIVE ───── */
+  @media(max-width:768px){
+    nav{display:none;}
+    .sobre-grid,.horarios-wrap{grid-template-columns:1fr;}
+    .sobre-numeros{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-nav">
+    <span class="poste">💈</span>
+    <div class="nome">Barbearia <span>Arantes</span></div>
+  </div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#horarios">Horários</a>
+    <a href="https://wa.me/5562994567050" target="_blank" class="nav-cta">Agendar</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">💈 Barbearia Premium em Goiânia</div>
+    <h1>Barbearia<span>Arantes</span></h1>
+    <p class="hero-sub">Presença · Respeito · Confiança · Estilo</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562994567050?text=Ola!+Quero+agendar+um+horario+na+Barbearia+Arantes." target="_blank" class="btn-gold">📲 Agendar pelo WhatsApp</a>
+      <a href="#servicos" class="btn-outline">Ver Serviços</a>
+    </div>
+  </div>
+  <div class="hero-scroll">role para baixo</div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sec-inner">
+    <span class="sec-tag">Quem Somos</span>
+    <h2 class="sec-titulo">Um espaço para quem<br/>valoriza <span>presença</span></h2>
+    <div class="divisor-gold"></div>
+    <div class="sobre-grid">
+      <div class="sobre-texto">
+        <p>A Barbearia Arantes nasceu para ser mais do que um lugar de corte. É um espaço pensado para quem valoriza presença, respeito, confiança e agilidade no atendimento.</p>
+        <p>Localizada no Parque Industrial João Braz, em Goiânia, atendemos clientes de toda a cidade com ambiente limpo, cadeiras confortáveis e profissionais que entendem o seu estilo — do tradicional ao moderno.</p>
+        <p>Cada detalhe foi pensado para que você saia do jeito que quer: na medida certa, com acabamento impecável.</p>
+      </div>
+      <div>
+        <div class="sobre-numeros">
+          <div class="num-card">
+            <div class="num">100%</div>
+            <div class="num-label">Satisfação garantida</div>
+          </div>
+          <div class="num-card">
+            <div class="num">6×</div>
+            <div class="num-label">Dias por semana</div>
+          </div>
+          <div class="num-card">
+            <div class="num">4+</div>
+            <div class="num-label">Serviços disponíveis</div>
+          </div>
+          <div class="num-card">
+            <div class="num">⚡</div>
+            <div class="num-label">Agendamento rápido</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="sec-inner">
+    <span class="sec-tag">O que oferecemos</span>
+    <h2 class="sec-titulo">Nossos <span>Serviços</span></h2>
+    <div class="divisor-gold"></div>
+    <p class="sec-desc">Cortes, barba e acabamentos realizados com precisão e cuidado. Cada serviço pensado para realçar o seu estilo.</p>
+    <div class="servicos-grid">
+      <div class="serv-card">
+        <span class="serv-icon">✂️</span>
+        <div class="serv-nome">Corte Masculino</div>
+        <div class="serv-desc">Corte tradicional ou moderno com acabamento perfeito, lavagem e finalização inclusos.</div>
+        <div class="serv-preco">R$ 35 <span>em diante</span></div>
+      </div>
+      <div class="serv-card">
+        <span class="serv-icon">🪒</span>
+        <div class="serv-nome">Barba</div>
+        <div class="serv-desc">Desenho, alinhamento e hidratação da barba com toalha quente e produtos de qualidade.</div>
+        <div class="serv-preco">R$ 25 <span>em diante</span></div>
+      </div>
+      <div class="serv-card">
+        <span class="serv-icon">✂️🪒</span>
+        <div class="serv-nome">Corte + Barba</div>
+        <div class="serv-desc">Combo completo: corte + barba com o melhor custo-benefício da região.</div>
+        <div class="serv-preco">R$ 55 <span>em diante</span></div>
+      </div>
+      <div class="serv-card">
+        <span class="serv-icon">👦</span>
+        <div class="serv-nome">Corte Infantil</div>
+        <div class="serv-desc">Ambiente tranquilo e atendimento especial para os pequenos, com paciência e cuidado.</div>
+        <div class="serv-preco">R$ 30 <span>em diante</span></div>
+      </div>
+      <div class="serv-card">
+        <span class="serv-icon">💅</span>
+        <div class="serv-nome">Acabamento</div>
+        <div class="serv-desc">Acabamento no pescoço, orelha e sobrancelha para um visual sempre alinhado.</div>
+        <div class="serv-preco">R$ 15 <span>em diante</span></div>
+      </div>
+      <div class="serv-card">
+        <span class="serv-icon">⭐</span>
+        <div class="serv-nome">Pacote VIP</div>
+        <div class="serv-desc">Corte + Barba + Acabamento + Hidratação: o tratamento completo que você merece.</div>
+        <div class="serv-preco">R$ 70 <span>em diante</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:0.72rem;color:rgba(255,255,255,0.3);letter-spacing:1px;">
+      * Valores sujeitos a alteração. Confirme pelo WhatsApp.
+    </p>
+  </div>
+</section>
+
+<!-- HORÁRIOS + CONTATO -->
+<section id="horarios">
+  <div class="sec-inner">
+    <span class="sec-tag">Atendimento</span>
+    <h2 class="sec-titulo">Horários &amp; <span>Contato</span></h2>
+    <div class="divisor-gold"></div>
+    <div class="horarios-wrap">
+      <div>
+        <div class="hora-lista">
+          <div class="hora-item">
+            <span class="hora-dia">Segunda-feira</span>
+            <span class="hora-tempo">09h – 20h</span>
+          </div>
+          <div class="hora-item">
+            <span class="hora-dia">Terça-feira</span>
+            <span class="hora-tempo">09h – 20h</span>
+          </div>
+          <div class="hora-item">
+            <span class="hora-dia">Quarta-feira</span>
+            <span class="hora-tempo">09h – 20h</span>
+          </div>
+          <div class="hora-item">
+            <span class="hora-dia">Quinta-feira</span>
+            <span class="hora-tempo">09h – 20h</span>
+          </div>
+          <div class="hora-item">
+            <span class="hora-dia">Sexta-feira</span>
+            <span class="hora-tempo">09h – 20h</span>
+          </div>
+          <div class="hora-item">
+            <span class="hora-dia">Sábado</span>
+            <span class="hora-tempo">09h – 19h</span>
+          </div>
+          <div class="hora-item">
+            <span class="hora-dia">Domingo</span>
+            <span class="hora-tempo">09h – 13h</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contato-box">
+          <h3>Fale Conosco</h3>
+          <div class="contato-item">
+            <span class="ic">📍</span>
+            <div class="info">
+              <strong>Endereço</strong>
+              Av. Berlim, Parque Industrial João Braz<br/>Goiânia – GO
+            </div>
+          </div>
+          <div class="contato-item">
+            <span class="ic">📱</span>
+            <div class="info">
+              <strong>WhatsApp</strong>
+              (62) 99456-7050
+            </div>
+          </div>
+          <div class="contato-item">
+            <span class="ic">📸</span>
+            <div class="info">
+              <strong>Instagram</strong>
+              @barbearia_arantes062
+            </div>
+          </div>
+          <div class="contato-item">
+            <span class="ic">📅</span>
+            <div class="info">
+              <strong>Agendamento</strong>
+              Exclusivamente pelo WhatsApp
+            </div>
+          </div>
+          <a href="https://wa.me/5562994567050?text=Ola!+Quero+agendar+um+horario+na+Barbearia+Arantes." target="_blank" class="btn-wpp">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Agendar Agora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Barbearia <span>Arantes</span></div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/barbearia_arantes062/" target="_blank">📸 @barbearia_arantes062</a>
+  </div>
+  <p>Av. Berlim, Parque Industrial João Braz · Goiânia – GO · (62) 99456-7050</p>
+  <p style="margin-top:0.5rem;">© 2024 Barbearia Arantes · Todos os direitos reservados</p>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5562994567050?text=Ola!+Quero+agendar+um+horario+na+Barbearia+Arantes." class="wpp-float" target="_blank" rel="noopener noreferrer" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
